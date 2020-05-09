@@ -1,0 +1,49 @@
+<swiper vertical="{{true}}" circular="{{true}}" current="{{current}}" skip-hidden-item-layout="{{true}}" bindchange="changeCurrent" bindanimationfinish="changeItem">
+    <swiper-item item-id="{{oneItemParam.id}}">
+        <video title="1111111" id="myVideo0" bindfullscreenchange="fullScreen" src="{{oneItemParam.src}}"  poster="{{oneItemParam.pic}}" custom-cache="{{true}}" controls="{{true}}" bindplay="eventPlay" bindtap="tabVideo"></video>
+    </swiper-item>
+
+    <swiper-item item-id="{{twoItemParam.id}}">
+        <video title="2222222" id="myVideo1" bindfullscreenchange="fullScreen" src="{{twoItemParam.src}}"  poster="{{twoItemParam.pic}}" custom-cache="{{true}}" controls="{{true}}" bindplay="eventPlay" bindtap="tabVideo"></video>
+    </swiper-item>
+
+    <swiper-item item-id="{{threeItemParam.id}}">
+        <video title="3333333" id="myVideo2" bindfullscreenchange="fullScreen" src="{{threeItemParam.src}}" poster="{{threeItemParam.pic}}" custom-cache="{{true}}" controls="{{true}}" bindplay="eventPlay" bindtap="tabVideo"></video>
+    </swiper-item>
+
+</swiper>
+
+<!-- 用户 -->
+<cover-view hidden="{{isFull}}" class="user flex flex-alignItems">
+    <cover-image src="../../static/images/defaultUserHead.png" class="head"></cover-image>
+    <cover-view class="user-rf">
+        <cover-view class="flex flex-alignItems name">
+            <cover-view class="name-child hide1">酷酷的磨磨虫</cover-view>
+            <cover-view class="label label2 flex flex-alignItems flex-justifyCenter">
+                <cover-image src="../../static/images/guanzhu.png" class="zhengque guanzhu"></cover-image>
+                <cover-view>关注</cover-view>
+            </cover-view>
+        </cover-view>
+        地址
+        <cover-view class="site flex flex-alignItems">
+            <cover-image src="https://mp-zhuantui-1259100054.cos.ap-guangzhou.myqcloud.com/demo/weizhi.png" class="address"></cover-image>
+            <cover-view>深圳南山小院</cover-view>
+        </cover-view>
+    </cover-view>
+</cover-view>
+
+<!-- 话题 描述 -->
+<cover-view hidden="{{isFull}}" class="tag">
+    <cover-view class="flex flex-alignItems">
+        <cover-view class="tag-child flex flex-alignItems">
+            <cover-image src="../../static/images/juxingWhit.png" class="jinghao"></cover-image>
+            <cover-view class="topicName-content hide1">{{videoParam.topic}}</cover-view>
+        </cover-view>
+    </cover-view>
+    <cover-view>{{videoParam.description}}aaaaaaaaa</cover-view>
+</cover-view>
+
+<cover-image src="https://jxtt-h5-1258058953.cos.ap-guangzhou.myqcloud.com/images/videoplay_btn.png" class="play" wx:if="{{playMark==1}}" bindtap="tabVideo"></cover-image>
+<view class="fullBtn"  bindtap="asdasd">全屏按钮</view>
+<!-- 动态修改视频id无法拿到最新的实例 视频有封面的情况下会闪烁 video动态修改src需要一点时间缓冲 很影响性能 会影响滑动效果-->
+<!-- 强制500ms间隔允许滑动？ -->
